@@ -4,25 +4,36 @@ VARIABLES
 
 // topics to use on my page
 var topics = [
-    "apple",
-    "banana",
-    "peach",
-    "cherry"
+    "a",
+    "b",
+    "c",
+    "d"
 ];
 
-var APIkey = "99Guer29R3DjsR7GWWt80ErqQpSEt5sh2;
-var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topics[i] + "&api_key=" + APIkey + "&limit=10&rating=g";
+// store API key
+var APIkey = "99Guer29R3DjsR7GWWt80ErqQpSEt5sh";
+
+// specify which button was clicked
+var btnIndex;
+
+// URLs
+var URLstill = "";
+var URLanimated = "";
 
 /**********************************
 FUNCTIONS
 **********************************/
 
+// create buttons on page
 function createButtons() {
     // stop buttons from repeatedly showing up
-    $("#topic-btn").empty();
-    for (var i = 0; i < topics.length; i++) {
-        var newBtn = $("<button>" + topics[i] + "</button>");
-        $("#topic-btn").append(newBtn);
+    $(".topic-btn").empty();
+    // loop through topics to create button for each
+    for (i = 0; i < topics.length; i++) {
+        // give button a data-name attribute
+        var newBtn = $("<button id='gif-btn' data-name='" + topics[i] + "'>" + topics[i] + "</button>");
+        // append to newBtn div
+        $(".topic-btn").append(newBtn);
     }
 }
 
@@ -39,13 +50,105 @@ $("#add-btn").on("click", function (event) {
     console.log(addInput);
     // add input to array
     topics.push(addInput);
+    // create buttons
     createButtons();
-})
+    // clear input field
+    $("#add-btn-input").val("");
+});
+
+// display 10 gifs when button is clicked
+$(document).on("click", "#gif-btn", function (event) {
+    $("#gif-display").empty();
+    // store data-name for URL
+    var searchForThis = $(this).attr("data-name");
+    // TEST
+    console.log(searchForThis);
+    // create queryURL
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + searchForThis + "&api_key=" + APIkey + "&limit=10&rating=g";
+    // TEST
+    console.log(queryURL);
+    // retrieve data
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function (response) {
+        var searchResult = response.data;
+        for (var i = 0; i < searchResult.length; i++) {
+            // define URLstill
+            URLstill = searchResult[i].images.fixed_height_still.url;
+            URLanimated = searchResult[i].images.fixed_height.url;
+            // creating new div for gif
+            var gifDiv = $("<div class='gif-div'>");
+            // creating new img tag for gif
+            var gifImg = $('<img class="gif col-md-3 col-12" data-state="still" data-animated="' + URLanimated + '" data-still="' + URLstill + '" src="' + URLstill + '">');
+            // gifImg.attr("src", searchResult[i].url)
+            var gifRating = $("<p class='rating'>");
+            // get gif's image
+            gifDiv.append(gifImg);
+            // get gif's rating
+            gifRating.html("Rating: " + searchResult[i].rating);
+            gifDiv.append(gifRating);
+            // display everything
+            $("#gif-display").prepend(gifDiv);
+        }
+        $("#more-btn").removeClass("hide");
+    })
+});
+$(document).on("click", "#more-btn", function (event) {
+    // store data-name for URL
+    var searchForThis = $(this).attr("data-name");
+    // TEST
+    console.log(searchForThis);
+    // create queryURL
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + searchForThis + "&api_key=" + APIkey + "&limit=10&rating=g";
+    // TEST
+    console.log(queryURL);
+    // retrieve data
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function (response) {
+        var searchResult = response.data;
+        for (var i = 0; i < searchResult.length; i++) {
+            // define URLstill
+            URLstill = searchResult[i].images.fixed_height_still.url;
+            URLanimated = searchResult[i].images.fixed_height.url;
+            // creating new div for gif
+            var gifDiv = $("<div class='gif-div'>");
+            // creating new img tag for gif
+            var gifImg = $('<img class="gif col-md-3 col-12" data-state="still" data-animated="' + URLanimated + '" data-still="' + URLstill + '" src="' + URLstill + '">');
+            // gifImg.attr("src", searchResult[i].url)
+            var gifRating = $("<p class='rating'>");
+            // get gif's image
+            gifDiv.append(gifImg);
+            // get gif's rating
+            gifRating.html("Rating: " + searchResult[i].rating);
+            gifDiv.append(gifRating);
+            // display everything
+            $("#gif-display").prepend(gifDiv);
+        }
+    })
+});
+
+// when gif is clicked
+$(document).on("click", ".gif", function (event) {
+    $(".gif").empty();
+    console.log(this);
+    // play gif
+    // get data-state
+    var state = $(this).attr("data-state");
+    if (state === "still") {
+        $(this).attr("src", $(this).attr("data-animated"));
+        $(this).attr("data-state", "animate");
+    } // stop gif
+    else {
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", "still");
+    }
+});
 
 /**********************************
 GAME CODE
 **********************************/
 // create first buttons
 createButtons();
-
-// display 10 gifs when button is clicked

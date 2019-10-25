@@ -1,0 +1,63 @@
+/**********************************
+COLORS
+#FFBF00
+#E83F6F
+#2274A5
+#32936F
+**********************************/
+body {
+  font-family: "Walter Turncoat", sans-serif;
+}
+
+/**********************************
+NAVBAR
+**********************************/
+.navbar-brand {
+  color: #ffffff;
+  font-size: 2.5rem;
+}
+.navbar {
+  background-color: #ffbf00;
+}
+/**********************************
+BUTTONS
+**********************************/
+#gif-btn {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 8px 10px 5px 10px;
+  text-decoration: none;
+  color: #e83f6f;
+  background: #ffd8e1;
+  border-bottom: solid 4px #e83f6f;
+  border-radius: 15px 15px 0 0;
+  transition: 0.4s;
+}
+#gif-btn:hover {
+  background: #e83f6f;
+  color: #ffffff;
+}
+/**********************************
+ADD BUTTON INPUT
+**********************************/
+#add-btn,
+#more-btn {
+  display: inline-block;
+  padding: 7px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  color: #ffffff;
+  background-image: -webkit-linear-gradient(45deg, #e83f6f 0%, #ffaec5 100%);
+  background-image: linear-gradient(45deg, #e83f6f 0%, #ffaec5 100%);
+  transition: 0.4s;
+}
+#add-btn:hover,
+#more-btn:hover {
+  background-image: -webkit-linear-gradient(45deg, #e83f6f 0%, #ffaec5 100%);
+  background-image: linear-gradient(45deg, #e83f6f 0%, #ffaec5 100%);
+}
+
+.hide {
+  display: none;
+}

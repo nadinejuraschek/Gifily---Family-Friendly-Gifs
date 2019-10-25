@@ -9,23 +9,61 @@
 
     <!-- STYLESHEETS -->
     <link rel="stylesheet" href="assets/css/reset.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Walter+Turncoat&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
     <!-- NAVBAR LOGO -->
+    <nav class="navbar">
+      <a class="navbar-brand" href="#">
+        <img
+          src="#"
+          width="30"
+          height="30"
+          class="d-inline-block align-top"
+          alt=""
+        />
+        Giftastic
+      </a>
+    </nav>
 
-    <!-- BUTTONS -->
-    <div id="topic-btn"></div>
+    <div class="container-fluid">
+      <div class="row">
+        <!-- BUTTONS -->
+        <div class="col-md-9 topic-btn"></div>
 
-    <!-- ADD BUTTON INPUT -->
-    <form id="input-form">
-      <label for="add-btn-input">Add a Topic<br /></label>
-      <input type="text" id="add-btn-input" /><br />
-      <input type="submit" id="add-btn" value="Submit" />
-    </form>
+        <!-- ADD BUTTON INPUT -->
+        <div class="col-md-3">
+          <form id="input-form">
+            <label for="add-btn-input">Add a Topic<br /></label>
+            <input type="text" id="add-btn-input" /><br />
+            <input type="submit" id="add-btn" value="Submit" />
+          </form>
+        </div>
+
+        <!-- GIFS -->
+        <div class="col-md-9"></div>
+        <div id="gif-display" class="row"></div>
+        <button id="more-btn" class="hide">Show Me More</button>
+      </div>
+    </div>
 
     <!-- JAVASCRIPT, JQUERY -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
     <script type="text/javascript" src="assets/javascript/app.js"></script>
   </body>
 </html>
