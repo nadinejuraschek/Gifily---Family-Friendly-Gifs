@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <title>Giftastic</title>
+    <title>Gifily - Family-Friendly Gifs</title>
 
     <!-- STYLESHEETS -->
     <link rel="stylesheet" href="assets/css/reset.css" />
@@ -24,19 +24,13 @@
   <body>
     <!-- NAVBAR LOGO -->
     <nav class="navbar">
-      <a class="navbar-brand" href="#">
-        <img
-          src="#"
-          width="30"
-          height="30"
-          class="d-inline-block align-top"
-          alt=""
-        />
-        Giftastic
-      </a>
+      <p class="navbar-brand">
+        <span class="heading-primary">GIFILY</span>
+        <span class="heading-sub">Family-Friendly Gifs</span>
+      </p>
     </nav>
 
-    <div class="container-fluid">
+    <div id="content" class="container-fluid">
       <div class="row">
         <!-- BUTTONS -->
         <div class="col-md-9 topic-btn"></div>
@@ -51,11 +45,12 @@
         </div>
 
         <!-- GIFS -->
-        <div class="col-md-9"></div>
         <div id="gif-display" class="row"></div>
-        <button id="more-btn" class="hide">Show Me More</button>
       </div>
     </div>
+
+    <!-- GIFS -->
+    <div class="footer fixed-bottom">® 2019</div>
 
     <!-- JAVASCRIPT, JQUERY -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

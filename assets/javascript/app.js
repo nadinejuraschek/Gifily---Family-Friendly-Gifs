@@ -4,17 +4,15 @@ VARIABLES
 
 // topics to use on my page
 var topics = [
-    "a",
-    "b",
-    "c",
-    "d"
+    "chores",
+    "dinner",
+    "family",
+    "pets",
+    "siblings"
 ];
 
 // store API key
 var APIkey = "99Guer29R3DjsR7GWWt80ErqQpSEt5sh";
-
-// specify which button was clicked
-var btnIndex;
 
 // URLs
 var URLstill = "";
@@ -31,7 +29,7 @@ function createButtons() {
     // loop through topics to create button for each
     for (i = 0; i < topics.length; i++) {
         // give button a data-name attribute
-        var newBtn = $("<button id='gif-btn' data-name='" + topics[i] + "'>" + topics[i] + "</button>");
+        var newBtn = $("<button id='gif-btn' class='btn-" + i + "' data-name='" + topics[i] + "'>" + topics[i] + "</button>");
         // append to newBtn div
         $(".topic-btn").append(newBtn);
     }
@@ -78,45 +76,9 @@ $(document).on("click", "#gif-btn", function (event) {
             URLstill = searchResult[i].images.fixed_height_still.url;
             URLanimated = searchResult[i].images.fixed_height.url;
             // creating new div for gif
-            var gifDiv = $("<div class='gif-div'>");
+            var gifDiv = $("<div class='gif-div col-md-4'>");
             // creating new img tag for gif
-            var gifImg = $('<img class="gif col-md-3 col-12" data-state="still" data-animated="' + URLanimated + '" data-still="' + URLstill + '" src="' + URLstill + '">');
-            // gifImg.attr("src", searchResult[i].url)
-            var gifRating = $("<p class='rating'>");
-            // get gif's image
-            gifDiv.append(gifImg);
-            // get gif's rating
-            gifRating.html("Rating: " + searchResult[i].rating);
-            gifDiv.append(gifRating);
-            // display everything
-            $("#gif-display").prepend(gifDiv);
-        }
-        $("#more-btn").removeClass("hide");
-    })
-});
-$(document).on("click", "#more-btn", function (event) {
-    // store data-name for URL
-    var searchForThis = $(this).attr("data-name");
-    // TEST
-    console.log(searchForThis);
-    // create queryURL
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + searchForThis + "&api_key=" + APIkey + "&limit=10&rating=g";
-    // TEST
-    console.log(queryURL);
-    // retrieve data
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).then(function (response) {
-        var searchResult = response.data;
-        for (var i = 0; i < searchResult.length; i++) {
-            // define URLstill
-            URLstill = searchResult[i].images.fixed_height_still.url;
-            URLanimated = searchResult[i].images.fixed_height.url;
-            // creating new div for gif
-            var gifDiv = $("<div class='gif-div'>");
-            // creating new img tag for gif
-            var gifImg = $('<img class="gif col-md-3 col-12" data-state="still" data-animated="' + URLanimated + '" data-still="' + URLstill + '" src="' + URLstill + '">');
+            var gifImg = $('<img class="gif" data-state="still" data-animated="' + URLanimated + '" data-still="' + URLstill + '" src="' + URLstill + '">');
             // gifImg.attr("src", searchResult[i].url)
             var gifRating = $("<p class='rating'>");
             // get gif's image
@@ -128,7 +90,13 @@ $(document).on("click", "#more-btn", function (event) {
             $("#gif-display").prepend(gifDiv);
         }
     })
+    // var moreBtn = $("<button id='more-btn' data-name='" + searchForThis + "'> Show Me More</button > ");
+    // $("#content").append(moreBtn);
 });
+
+// $(document).on("click", "#more-btn", function (event) {
+
+// });
 
 // when gif is clicked
 $(document).on("click", ".gif", function (event) {

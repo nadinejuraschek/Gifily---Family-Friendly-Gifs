@@ -8,30 +8,47 @@ COLORS
 body {
   font-family: "Walter Turncoat", sans-serif;
 }
-
+button {
+  text-transform: uppercase;
+}
 /**********************************
 NAVBAR
 **********************************/
+.navbar {
+  background-image: linear-gradient(to right bottom, #f7ca39, #ffbf00);
+  box-shadow: 0 3px 5px #d6a100;
+  justify-content: center;
+  margin: 0 0 30px;
+}
 .navbar-brand {
   color: #ffffff;
-  font-size: 2.5rem;
 }
-.navbar {
-  background-color: #ffbf00;
+.heading-primary {
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+.heading-sub {
+  font-size: 1.75rem;
+  margin-left: 2rem;
+}
+.content {
+  margin: 30px 0 30px;
 }
 /**********************************
 BUTTONS
 **********************************/
 #gif-btn {
-  position: relative;
-  display: inline-block;
-  font-weight: bold;
-  padding: 8px 10px 5px 10px;
-  text-decoration: none;
-  color: #e83f6f;
   background: #ffd8e1;
+  border: 1px solid #e83f6f;
   border-bottom: solid 4px #e83f6f;
   border-radius: 15px 15px 0 0;
+  color: #e83f6f;
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 8px 10px 5px 10px;
+  position: relative;
+  text-decoration: none;
   transition: 0.4s;
 }
 #gif-btn:hover {
@@ -41,23 +58,57 @@ BUTTONS
 /**********************************
 ADD BUTTON INPUT
 **********************************/
+#add-btn-input {
+  font-size: 1rem;
+  padding: 0 0.5rem;
+  width: 90%;
+}
 #add-btn,
 #more-btn {
-  display: inline-block;
-  padding: 7px 20px;
+  background-image: -webkit-linear-gradient(45deg, #6fc1f1 0%, #2274a5 100%);
+  background-image: linear-gradient(45deg, #6fc1f1 0%, #2274a5 100%);
+  border: none;
   border-radius: 25px;
-  text-decoration: none;
   color: #ffffff;
-  background-image: -webkit-linear-gradient(45deg, #e83f6f 0%, #ffaec5 100%);
-  background-image: linear-gradient(45deg, #e83f6f 0%, #ffaec5 100%);
+  display: inline-block;
+  font-size: 1.25rem;
+  padding: 7px 20px;
+  text-decoration: none;
+  margin: 1rem 0;
   transition: 0.4s;
 }
 #add-btn:hover,
 #more-btn:hover {
-  background-image: -webkit-linear-gradient(45deg, #e83f6f 0%, #ffaec5 100%);
-  background-image: linear-gradient(45deg, #e83f6f 0%, #ffaec5 100%);
+  background-image: -webkit-linear-gradient(45deg, #6fc1f1 0%, #2274a5 100%);
+  background-image: linear-gradient(45deg, #6fc1f1 0%, #2274a5 100%);
 }
-
-.hide {
-  display: none;
+label {
+  font-size: 1.25rem;
+}
+/**********************************
+GIF DISPLAY
+**********************************/
+#gif-display {
+  padding: 1rem;
+}
+.gif-div {
+  height: 35%;
+}
+img {
+  height: 65%;
+  width: 85%;
+}
+.rating {
+  font-size: 1.25rem;
+  margin-top: 0.75rem;
+}
+/**********************************
+GIF DISPLAY
+**********************************/
+.footer {
+  background-image: linear-gradient(to right bottom, #6fc1f1, #2274a5);
+  color: #ffffff;
+  font-size: 0.75rem;
+  height: 30px;
+  text-align: center;
 }
