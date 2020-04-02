@@ -105,10 +105,17 @@ img {
 /**********************************
 GIF DISPLAY
 **********************************/
-.footer {
+footer {
   background-image: linear-gradient(to right bottom, #6fc1f1, #2274a5);
   color: #ffffff;
   font-size: 0.75rem;
   height: 30px;
   text-align: center;
+}
+footer a {
+  color: #ffffff;
+}
+footer a:hover {
+  color: #FFBF00;
+  text-decoration: none;
 }
