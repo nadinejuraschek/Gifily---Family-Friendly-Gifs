@@ -9,3 +9,9 @@ Try it out [here](https://nadinejuraschek.github.io/Gifily---Family-Friendly-Gif
 
 #### Adding a Topic
 ![Add](./preview-addtopic.gif)
+
+## Technologies
+* Bootstrap
+* JavaScript
+* jQuery
+* ajax
